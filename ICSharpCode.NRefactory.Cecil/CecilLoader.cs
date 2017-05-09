@@ -164,7 +164,7 @@ namespace ICSharpCode.NRefactory.TypeSystem
 			moduleAttributes = interningProvider.InternList(moduleAttributes);
 			
 			this.currentAssembly = new CecilUnresolvedAssembly(assemblyDefinition != null ? assemblyDefinition.Name.FullName : moduleDefinition.Name, this.DocumentationProvider);
-			currentAssembly.Location = moduleDefinition.FullyQualifiedName;
+			currentAssembly.Location = moduleDefinition.FileName;
 			currentAssembly.AssemblyAttributes.AddRange(assemblyAttributes);
 			currentAssembly.ModuleAttributes.AddRange(assemblyAttributes);
 			
@@ -310,6 +310,10 @@ namespace ICSharpCode.NRefactory.TypeSystem
 			{
 				return null;
 			}
+
+		    public void Dispose()
+		    {
+		    }
 		}
 		#endregion
 		
